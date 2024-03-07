@@ -27,7 +27,7 @@ app.post('/login', async (req, resp) => {
             console.log(Key)
             JWT.sign({ result }, Key, { expiresIn: '2h' }, (err, token) => {
                 if (err) {
-                    resp.send({ error: err })
+                    resp.send(err)
                 } else {
                     resp.send({ result, auth: token })
                 }

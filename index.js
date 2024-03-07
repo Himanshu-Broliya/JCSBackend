@@ -9,7 +9,7 @@ const PORT = process.env.PORT;
 const bcrypt = require('bcryptjs')
 const JWT = require('jsonwebtoken');
 const multer = require('multer')
-const Key = process.env.Key;
+const Key = process.env.KEY;
 
 app.use(express.json());
 app.use(cors());

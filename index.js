@@ -20,11 +20,13 @@ app.use(express.static('uploads'));
 app.post('/login', async (req, resp) => {
     if (req.body) {
         let result = await User.findOne({ "username": req.body.username })
+        console.log(result)
         pass = await bcrypt.compare(req.body.password, result.password)
+        console.log(pass)
         if (pass) {
             JWT.sign({ result }, Key, { expiresIn: '2h' }, (err, token) => {
                 if (err) {
-                    resp.send({ error: "something went wrong!" })
+                    resp.send({ error: err })
                 } else {
                     resp.send({ result, auth: token })
                 }

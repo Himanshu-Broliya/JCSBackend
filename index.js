@@ -24,6 +24,7 @@ app.post('/login', async (req, resp) => {
         pass = await bcrypt.compare(req.body.password, result.password)
         console.log(pass)
         if (pass) {
+            console.log(Key)
             JWT.sign({ result }, Key, { expiresIn: '2h' }, (err, token) => {
                 if (err) {
                     resp.send({ error: err })

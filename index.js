@@ -13,7 +13,7 @@ const Key = process.env.KEY;
 
 app.use(express.json());
 app.use(cors());
-app.use(express.static("uploads"))
+app.use(express.static("uploads"));
 
 
 
@@ -61,6 +61,7 @@ const upload = multer({
 
 app.post('/images', upload.array('image'), async (req, resp) => {
     const files = req.files;
+    console.log(files)
     let result = ''
     if (Array.isArray(files) && files.length > 0) {
         files.flatMap(async (file) => {

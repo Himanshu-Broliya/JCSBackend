@@ -13,7 +13,7 @@ const Key = process.env.KEY;
 
 app.use(express.json());
 app.use(cors());
-app.use(express.static('uploads'));
+app.use(express.static("uploads"))
 
 
 

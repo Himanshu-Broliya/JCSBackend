@@ -61,7 +61,6 @@ const upload = multer({
 
 app.post('/images', upload.array('image'), async (req, resp) => {
     const files = req.files;
-    console.log(files)
     let result = ''
     if (Array.isArray(files) && files.length > 0) {
         files.flatMap(async (file) => {
@@ -73,11 +72,11 @@ app.post('/images', upload.array('image'), async (req, resp) => {
         if (result) {
             resp.send(result)
         } else {
-            resp.send({error:"eror"})
+            resp.send(false)
         }
 
     } else {
-        resp.send({error:"not array"})
+        resp.send(false)
     }
 })
 

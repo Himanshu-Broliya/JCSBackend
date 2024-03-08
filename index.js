@@ -73,11 +73,11 @@ app.post('/images', upload.array('image'), async (req, resp) => {
         if (result) {
             resp.send(result)
         } else {
-            resp.send(false)
+            resp.send({error:"eror"})
         }
 
     } else {
-        resp.send(false)
+        resp.send({error:"not array"})
     }
 })
 
